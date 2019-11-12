@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
+#include<iterator>
 #define FOR(i, n) for (int i = 0; i < n; i++)
 using namespace std;
 typedef long long ll;
@@ -19,25 +20,14 @@ int main()
 	int querie;
 	cin >> querie;
 	while (querie--) {
-		bool ans = false;
 		int value, cnt = 1;
 		cin >> value;
-		FOR(i, Arr.size()) {
-			if (Arr[i] == value) {
-				ans = true;
-				break;
-			}
-			else if (Arr[i] > value) {
-				ans = false;
-				break;
-			}
-			else
-				cnt++;
-		}
-		if (ans)
-			cout << "Yes " << cnt << endl;
+		vector<ll>::iterator it;
+		it = lower_bound(Arr.begin(), Arr.end(), value);
+		if (Arr[it - Arr.begin()] == value)
+		     cout << "Yes " << (it - Arr.begin() + 1) << endl;
 		else
-			cout << "No " << cnt << endl;
+		     cout << "No " << (it - Arr.begin() + 1) << endl;
 	}
 	return 0;
 }
