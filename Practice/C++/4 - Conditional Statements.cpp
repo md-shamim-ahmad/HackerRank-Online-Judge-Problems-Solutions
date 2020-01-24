@@ -2,7 +2,7 @@
 
 using namespace std;
 
-char ch[11][20] = {"one","two","three","four","five","six","seven","eight","nine"};
+char ch[11][10] = {"one","two","three","four","five","six","seven","eight","nine"};
 
 int main()
 {
