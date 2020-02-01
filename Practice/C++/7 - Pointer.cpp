@@ -1,19 +1,21 @@
-#include <bits/stdc++.h>
-using namespace ::std;
+#include <stdio.h>
+#include <iostream>
+#include <algorithm>
 
 void update(int *a,int *b) {
-    // Complete this function
-    int sum= *a + *b;
-
-    *b = max( *a , *b )- min(*a , *b);
-    *a = sum;
+    // Complete this function 
+    int c = *a + *b;
+    *b = abs(*a - *b);
+    *a = c;
 }
 
 int main() {
     int a, b;
-    cin >> a >> b;
-    update(&a, &b);
-    cout<< a << endl << b << endl;
+    int *pa = &a, *pb = &b;
+    
+    scanf("%d %d", &a, &b);
+    update(pa, pb);
+    printf("%d\n%d", a, b);
 
     return 0;
 }
