@@ -1,27 +1,16 @@
-import java.io.*;
 import java.util.*;
 
-public class Solution {
-
+class Solution {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String s = scan.nextLine();
-        String[] items = s.trim().split("[ !,?.\\_'@]+");
-
-        if(s.isEmpty()){
-            System.out.println("0");
-
+        Scanner stdin = new Scanner(System.in);
+        String[] str = stdin.nextLine().trim().split("[ !,?\\._'@]+", 0);
+        if (str.length == 1 && str[0].equals("")) {
+            System.out.println(0);
+        } else {
+            System.out.println(str.length);
+            for (String s : str) {
+                System.out.println(s);
+            }
         }
-        else if(s.length() > 400000){
-            return;
-        }
-        else{
-            System.out.println(items.length);
-        }
-
-        for(String item : items){
-            System.out.println(item);
-        }
-        scan.close();
     }
 }
